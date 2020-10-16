@@ -1,5 +1,5 @@
 // primitive types
-typedef unsigned int u32;
+typedef unsigned int u64;
 
 // mmio addresses
 #define MMIO_BASE_ADDRESS (0x3F000000)
@@ -21,14 +21,14 @@ typedef unsigned int u32;
 
 // main entry point
 void main(void) {
-    volatile u32 time;
+    volatile u64 time;
     
-    *(u32*)GPIO_GPFSEL2 |= (1 << 27);
+    *(u64*)GPIO_GPFSEL2 |= (1 << 27);
     
     while (1) {
         for(time = 0; time < 500000; time++);
-        *(u32*)GPIO_GPCLR0 = (1 << 29);
+        *(u64*)GPIO_GPCLR0 = (1 << 29);
         for(time = 0; time < 500000; time++);
-        *(u32*)GPIO_GPSET0 = (1 << 29);
+        *(u64*)GPIO_GPSET0 = (1 << 29);
     }
 }
