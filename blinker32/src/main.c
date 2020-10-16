@@ -19,24 +19,17 @@ typedef unsigned int u32;
 #define GPIO_GPCLR0    (GPIO_BASE_ADDRESS + 0x00000028)
 #define GPIO_GPCLR1    (GPIO_BASE_ADDRESS + 0x0000002C)
 
-// shortcut to led mmio addresses
-#define LED_GPFSEL      GPIO_GPFSEL2
-#define LED_GPFBIT      27
-#define LED_GPSET       GPIO_GPSET0
-#define LED_GPCLR       GPIO_GPCLR0
-#define LED_GPIO_BIT    29
-
 // main entry point
 void main(void) __attribute__((naked));
 void main(void) {
     volatile u32 time;
     
-    *(u32*)LED_GPFSEL |= (1 << LED_GPFBIT);
+    *(u32*)GPIO_GPFSEL2 |= (1 << 27);
     
     while (1) {
         for(time = 0; time < 500000; time++);
-        *(u32*)LED_GPCLR = (1 << LED_GPIO_BIT);
+        *(u32*)GPIO_GPCLR0 = (1 << 29);
         for(time = 0; time < 500000; time++);
-        *(u32*)LED_GPSET = (1 << LED_GPIO_BIT);
+        *(u32*)GPIO_GPSET0 = (1 << 29);
     }
 }

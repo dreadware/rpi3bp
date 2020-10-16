@@ -16,7 +16,7 @@ IF NOT EXIST ..\bin MKDIR ..\bin
 PUSHD ..\bin
 
 %GCC_Compile% %CompilerFlags% -c ..\src\main.c -o main.o
-%GCC_Linker% %LinkerFlags% main.o -o kernel.elf
+%GCC_Linker% %LinkerFlags% main.o -T ..\src\link.ld -o kernel.elf
 %GCC_Copy% kernel.elf -O binary %OutputKernelName%.img
 
 del *.elf 2> NUL
