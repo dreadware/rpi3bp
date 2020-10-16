@@ -27,9 +27,9 @@ void main(void) {
     *(u32*)GPIO_GPFSEL2 |= (1 << 27);
     
     while (1) {
-        for(time = 0; time < 500000; time++);
+        for (time = 0; time < 500000; time++);
         *(u32*)GPIO_GPCLR0 = (1 << 29);
-        for(time = 0; time < 500000; time++);
+        for (time = 0; time < 500000; time++);
         *(u32*)GPIO_GPSET0 = (1 << 29);
     }
 }
