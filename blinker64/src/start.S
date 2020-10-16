@@ -9,5 +9,5 @@ _sleep:
 	b	  _sleep
 
 _entry:
-	mov	sp, #0x800000
+	mov	sp, #0x80000
 	bl 	main

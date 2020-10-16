@@ -30,12 +30,12 @@ typedef unsigned int u32;
 void main(void) {
     volatile u32 time;
     
-    *(u32*)LED_GPFSEL |= (1 << LED_GPFBIT);
+    *(u32*)GPIO_GPFSEL2 |= (1 << 27);
     
     while (1) {
         for(time = 0; time < 500000; time++);
-        *(u32*)LED_GPCLR = (1 << LED_GPIO_BIT);
+        *(u32*)GPIO_GPCLR0 = (1 << 29);
         for(time = 0; time < 500000; time++);
-        *(u32*)LED_GPSET = (1 << LED_GPIO_BIT);
+        *(u32*)GPIO_GPSET0 = (1 << 29);
     }
 }
