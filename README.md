@@ -4,6 +4,7 @@ This repository contains "bare metal" software examples coded in C and Aarch64 a
 Please note that this software is not guaranteed to work on the older Raspberry Pi 3B because the 3B and the 3B+ boards differ in some ways. Specifically, the ACT LED of the 3B is not controlled the same as the 3B+ which means the blinker examples will not work on the 3B.
 
 The files in the rpi3bp/firmware/ directory must be included in the root directory of the SD card for code to execute. These files are copies of the most up-to-date files found on the official Raspberry Pi github page, as of the time of upload. Alternatively, you can download the official firmware files here: https://github.com/raspberrypi/firmware/tree/master/boot 
+
 You can read an explanation of the files here: https://www.raspberrypi.org/documentation/configuration/boot_folder.md
 
 Additionally, the SD card must contain a config.txt file with specific settings to run correctly. A valid config.txt file can be found just above the /src/ directory of each project. For example, the config.txt file needed to run the blinker64 example can be found at rpi3bp/blinker64/config.txt and should be placed at the same level as the firmware files in the root directory of the SD card.
